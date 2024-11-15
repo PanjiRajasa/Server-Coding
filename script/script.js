@@ -1,5 +1,7 @@
-window.onload = function() {
+"use strict";
 
+window.onload = function() {
+    document.body.style.fontFamily = "'Poppins', sans-serif";
     console.info("Time for Server Learning!");
 
     let data;
@@ -25,7 +27,7 @@ window.onload = function() {
         } else {
             checkboxResult.textContent = `Check Property is not checkded`;
         }
-    
+
         if (visa.checked) {
             radioResult.textContent = `You are using visa`;
         } else if (mastercardradio.checked) {
@@ -34,6 +36,20 @@ window.onload = function() {
             radioResult.textContent = `You are using PayPal`;
         } else {
             radioResult.textContent = `You must select one of several radio buttons`;
+        }
+    }
+
+    // chaining method
+    const chainingMethodButton = document.getElementById("chainingMethodButton");
+    const chainingMethodInput = document.getElementById("chainingMethodInput");
+    const chainingMethodResult = document.getElementById("chainingMethodResult");
+
+    chainingMethodButton.onclick = function() {
+        if(!chainingMethodInput.value.trim()) {
+            chainingMethodResult.textContent = `You must input a value`
+        } else {
+            const transformInputValue = chainingMethodInput.value.trim().charAt(0).toUpperCase() + chainingMethodInput.value.trim().slice(1).toLowerCase();
+            chainingMethodResult.textContent = `${transformInputValue}`;
         }
     }
 }
